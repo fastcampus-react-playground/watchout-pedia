@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 
@@ -12,7 +12,11 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const queryClient = new QueryClient();
 
-ReactDOM.render(
+const rootEl = document.getElementById('root');
+
+const root = rootEl && ReactDOM.createRoot(rootEl)
+
+root?.render(
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
         <React.StrictMode>
@@ -20,7 +24,6 @@ ReactDOM.render(
         </React.StrictMode>
       </RecoilRoot>
     </QueryClientProvider>,
-  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

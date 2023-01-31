@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import ReactSlider, { Settings } from 'react-slick';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
@@ -6,6 +6,7 @@ import { MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md';
 
 interface Props {
   settings?: Settings;
+  children?: ReactNode | ReactNode[];
 }
 
 const ArrowButton = styled.button<{ pos?: 'left' | 'right' }>`

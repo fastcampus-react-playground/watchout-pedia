@@ -212,7 +212,7 @@ interface Props {}
 const MovieDetail: React.FC<Props> = () => {
   const { id } = useParams<Params>();
 
-  const { isLoading, data } = useMovieDetail(id);
+  const { isLoading, data } = useMovieDetail(id ?? "");
 
   const year = useMemo(() => data?.release_date.split('-')[0] || '', [data]);
   const genres = useMemo(() => data?.genres.map(genre => genre.name).join('/') || '', [data]);
@@ -289,7 +289,7 @@ const MovieDetail: React.FC<Props> = () => {
             <BottomInfo>
               <ContentSectionContainer>
                 <DefaultInfo title={data.title} year={year} genres={genres} runtime={data.runtime} overview={data.overview} />
-                <Similar id={id} />
+                <Similar id={id ?? ""} />
               </ContentSectionContainer>
             </BottomInfo>
           </>

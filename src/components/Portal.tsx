@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 interface Props {
   selector?: string;
+  children?: ReactNode | ReactNode[];
 }
 
 const Portal: React.FC<Props> = ({ children, selector }) => {

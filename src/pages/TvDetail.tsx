@@ -212,7 +212,7 @@ type Params = {
 const TvDetail: React.FC = () => {
   const { id } = useParams<Params>();
 
-  const { isLoading, data } = useTvDetail(id);
+  const { isLoading, data } = useTvDetail(id || "");
 
   const year = useMemo(() => data?.first_air_date.split('-')[0] || '', [data]);
   const genres = useMemo(() => data?.genres.map(genre => genre.name).join('/') || '', [data]);
@@ -275,7 +275,7 @@ const TvDetail: React.FC = () => {
             <BottomInfo>
               <ContentSectionContainer>
                 <DefaultInfo title={data.name} year={year} genres={genres} overview={data.overview} />
-                <Similar id={id} />
+                <Similar id={id || ""} />
               </ContentSectionContainer>
             </BottomInfo>
           </>

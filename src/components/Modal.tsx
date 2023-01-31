@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import styled from '@emotion/styled';
 import { CSSTransition } from 'react-transition-group';
 
@@ -8,6 +8,7 @@ interface Props {
   isOpen: boolean;
   selector?: string;
   onClose: () => void;
+  children?: ReactNode | ReactNode[];
 }
 
 const Overlay = styled.div`

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, {ReactNode, useMemo} from 'react';
 import { keyframes, css } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -12,6 +12,7 @@ interface Props {
   animation?: boolean;
   color?: string;
   style?: React.CSSProperties;
+  children?: ReactNode | ReactNode[];
 }
 
 const pulseKeyframe = keyframes`
