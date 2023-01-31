@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import MainPage from './pages/MainPage';
 import MovieDetail from './pages/MovieDetail';
@@ -15,14 +15,14 @@ const Base = styled.div``;
 function App() {
   return (
     <Base>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route exact path="/tv" component={TvPage} />
-          <Route exact path="/movie/:id" component={MovieDetail} />
-          <Route exact path="/tv/:id" component={TvDetail} />
-        </Switch>
-      </Router>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/tv" element={<TvPage />} />
+          <Route path="/movie/:id" element={<MovieDetail />} />
+          <Route path="/tv/:id" element={<TvDetail />} />
+        </Routes>
+      </BrowserRouter>
       <LoginModal />
       <SignupModal />
     </Base>
